@@ -4,8 +4,8 @@ const giftbox = document.getElementById('merrywrap');
 const canvasC = document.getElementById('c');
 
 const config = {
-  birthdate: 'Jan 29, 2020',
-  name: 'My beloved Myat Noe'
+  birthdate: 'November 16, 2023',
+  name: 'Myat Noe'
 };
 
 function hideEverything() {
@@ -26,9 +26,7 @@ const second = 1000,
   hour = minute * 60,
   day = hour * 24;
 
-let countDown = new Date("August 2, 2022 16:30:00").getTime();
-
-
+let countDown = new Date(`${config.birthdate} 00:00:00`).getTime();
 x = setInterval(function() {
   let now = new Date().getTime(),
     distance = countDown - now;
@@ -50,35 +48,10 @@ x = setInterval(function() {
     hw = w / 2, // half-width
     hh = h / 2,
     opts = {
-        strings: [
-            'I want to start by saying how deeply sorry I am for my mistake. ',
-            'I feel terrible and remorseful for forgetting National GF Day, ',
-            'an occasion that holds so much significance for both of us. ',
-            'I know how important special days like this are, and my forgetfulness was inexcusable. ',
-            'Please believe me when I say that it was never my intention to overlook ',
-            'such an important day in our relationship. I realize now ',
-            'how much it must have hurt and disappointed you, and for that, ',
-            'I am truly sorry. You mean the world to me, and I cherish every moment we spend together. ',
-            'Your love and presence in my life bring me immense happiness, and ',
-            'I never want to cause you any pain. I deeply regret my lapse in memory ',
-            'and the impact it had on you. From now on, I promise to be more attentive ',
-            'and considerate of such meaningful occasions. I am committed ',
-            'to making things right and ensuring that our relationship ',
-            'is filled with love, care, and special moments. To make it up to you, ',
-            'I\'ve planned a special day for us. I won\'t reveal the details yet, ',
-            'but I promise it will be a time to celebrate our love and ',
-            'create beautiful memories together. Please know that I am sincerely sorry, ',
-            'and I hope you can find it in your heart to forgive me. ',
-            'I value our relationship more than anything and am willing ',
-            'to do whatever it takes to make you happy. Thank you for your understanding ',
-            'and giving me the chance to apologize. You are my everything, ',
-            'and I will always cherish the love we share. ',
-            'With all my love and heartfelt apologies!',
-            config.name
-          ],
-      charSize: 16,
-      charSpacing: 11,
-      lineHeight: 21,
+      strings: ['HAPPY', 'BIRTHDAY!', config.name],
+      charSize: 30,
+      charSpacing: 35,
+      lineHeight: 40,
 
       cx: w / 2,
       cy: h / 2,
@@ -104,16 +77,17 @@ x = setInterval(function() {
       fireworkShardAddedSize: 3,
       gravity: 0.1,
       upFlow: -0.1,
-      letterContemplatingWaitTime: 2500,
+      letterContemplatingWaitTime: 360,
       balloonSpawnTime: 20,
       balloonBaseInflateTime: 10,
       balloonAddedInflateTime: 10,
       balloonBaseSize: 20,
+      balloonAddedSize: 20,
       balloonBaseVel: 0.4,
       balloonAddedVel: 0.4,
       balloonBaseRadian: -(Math.PI / 2 - 0.5),
       balloonAddedRadian: -1
-    };
+    },
     calc = {
       totalWidth:
         opts.charSpacing *
@@ -137,10 +111,10 @@ x = setInterval(function() {
 
     let hue = (x / calc.totalWidth) * 360;
 
-    this.color = 'hsl(273, 100%, 70%)'; // A slightly darker purple color
-    this.lightAlphaColor = 'hsla(273, 100%, 70%, 0.8)'; // Slightly darker purple color with alpha
-    this.lightColor = 'hsl(273, 100%, 75%)'; // A slightly lighter purple color
-    this.alphaColor = 'hsla(273, 100%, 70%, 0.8)';  // Light purple color with alpha
+    this.color = 'hsl(hue,80%,50%)'.replace('hue', hue);
+    this.lightAlphaColor = 'hsla(hue,80%,light%,alp)'.replace('hue', hue);
+    this.lightColor = 'hsl(hue,80%,light%)'.replace('hue', hue);
+    this.alphaColor = 'hsla(hue,80%,50%,alp)'.replace('hue', hue);
 
     this.reset();
   }
@@ -446,7 +420,6 @@ x = setInterval(function() {
     ctx.translate(-hw, -hh);
 
     if (done) for (let l = 0; l < letters.length; ++l) letters[l].reset();
-    
   }
 
   for (let i = 0; i < opts.strings.length; ++i) {
@@ -520,7 +493,7 @@ x = setInterval(function() {
 
     init();
   }
-  
+
   // if (distance < 0) {
   //     clearInterval(x);
   //     console.log("happy birthday");

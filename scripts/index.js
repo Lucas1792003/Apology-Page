@@ -446,6 +446,7 @@ x = setInterval(function() {
     ctx.translate(-hw, -hh);
 
     if (done) for (let l = 0; l < letters.length; ++l) letters[l].reset();
+    
   }
 
   for (let i = 0; i < opts.strings.length; ++i) {
@@ -519,7 +520,7 @@ x = setInterval(function() {
 
     init();
   }
-
+  
   // if (distance < 0) {
   //     clearInterval(x);
   //     console.log("happy birthday");

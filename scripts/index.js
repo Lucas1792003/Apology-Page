@@ -4,7 +4,7 @@ const giftbox = document.getElementById('merrywrap');
 const canvasC = document.getElementById('c');
 
 const config = {
-  birthdate: 'November 16, 2022',
+  birthdate: 'November 16, 2023',
   name: 'Myat Noe'
 };
 
@@ -483,7 +483,7 @@ x = setInterval(function() {
       }
       setTimeout(openBox, stepMinutes[step - 1]);
       step++;
-      //   setTimeout(anim, 1900);
+        // setTimeout(anim, 1900);
     }
 
     function showfireworks() {
@@ -494,8 +494,8 @@ x = setInterval(function() {
     init();
   }
 
-  // if (distance < 0) {
-  //     clearInterval(x);
-  //     console.log("happy birthday");
-  // }
+  if (distance < 0) {
+      clearInterval(x);
+      console.log("happy birthday");
+  }
 }, second);

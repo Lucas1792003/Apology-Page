@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "Birthday Countdown",
+    "version": "1.0",
+    "description": "My wish for you.",
+    "permissions": [
+      "activeTab"
+    ],
+    "chrome_url_overrides": {
+      "newtab": "index.html"
+    }
+  }
+  
